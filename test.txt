@@ -1,0 +1,27 @@
+###################################################################################
+#Please do not edit this set of instructions (It will cause your program to crash)#
+#Only edit the text outside of this set of instrustions below                     #  
+###################################################################################
+#Add {name} if you would like to add in the person's name                         #
+#Add {i} if you would like to add in image     				          #
+#Add {a} if you would like to send in attachment or documents	                  #
+###################################################################################
+
+{i}
+
+Hey 
+{name}
+, 
+
+Gentle reminder, our FREE-1 Hr TOT Virtual Masterclass is happening tomorrow at 3pm!
+
+If you have registered for the masterclass, you should have received a confirmation email. If you didn't, let us know!
+
+(Please do not share the link with anyone, the link is unique to you)
+
+See you there!
+
+Cheers,
+Milestones Academy
+
+{a}
