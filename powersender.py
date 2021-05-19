@@ -5,24 +5,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from pynput.keyboard import Key, Controller
 import pyperclip
-
-from configparser import ConfigParser
-
-# config = ConfigParser()
-# config.read("example.ini")
-# CHROME_DRIVER_PATH = config.get("chromedriver", "path")
-#DURATION = config.getint("delay", "seconds")
-
-
-#https://medium.com/technology-hits/easily-distribute-python-selenium-applications-with-pyinstaller-ef276844ad2d
-
 import requests
 import wget
 import re
 import os
 import zipfile
-
-#https://stackoverflow.com/questions/62017043/automatic-download-of-appropriate-chromedriver-for-selenium-in-python
 
 def download_chromedriver():
     filePath = os.getcwd()
@@ -33,18 +20,14 @@ def download_chromedriver():
         return version_number
     def download(download_url, driver_binaryname, target_name):
         # download the zip file using the url built above
-        #latest_driver_zip = wget.download(download_url, out='./temp/chromedriver.zip')
         latest_driver_zip = wget.download(download_url, out='chromedriver.zip')
 
         # extract the zip file
         with zipfile.ZipFile(latest_driver_zip, 'r') as zip_ref:
-            #zip_ref.extractall(path = './temp/') # you can specify the destination folder path here
             zip_ref.extractall(path=filePath)  # you can specify the destination folder path here
 
         # delete the zip file downloaded above
         os.remove(latest_driver_zip)
-        #os.rename(driver_binaryname, target_name)
-        #os.chmod(target_name, 755)
     if os.name == 'nt':
         replies = os.popen(r'reg query "HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon" /v version').read()
         replies = replies.split('\n')
@@ -89,7 +72,6 @@ def download_chromedriver():
             tokens = fullversion.split('.')
             version = tokens[0]
 
-        #target_name = './bin/chromedriver-linux-' + version
         target_name = filePath + '\chromedriver.exe'
         print('new chrome driver at ' + target_name)
         found = os.path.exists(target_name)
@@ -107,27 +89,9 @@ if getattr(sys, 'frozen', False):
 else:
     driver = webdriver.Chrome()
 
-
-
-#driver = webdriver.Chrome()
-
-
-# def resource_path(relative_path: str) -> str:
-#     try:
-#         base_path = sys._MEIPASS
-#     except Exception:
-#         base_path = os.path.dirname(__file__)
-#     return os.path.join(base_path, relative_path)
-
-
-#driver = webdriver.Chrome(resource_path(CHROME_DRIVER_PATH))
-#driver = webdriver.Chrome()
 driver.get('https://web.whatsapp.com/')
 
-
-
 line = "----------------------------------------------------------"
-
 
 class fileValidityTest():
 
