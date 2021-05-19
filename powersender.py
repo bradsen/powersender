@@ -43,9 +43,9 @@ def download_chromedriver():
 
         #target_name = './bin/chromedriver-win-' + version + '.exe'
         target_name = filePath + '\chromedriver.exe'
-        print(target_name)
+        
         found = os.path.exists(target_name)
-        #print(found)
+       
         if not found:
             version_number = get_latestversion(version)
             # build the donwload url
